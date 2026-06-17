@@ -1,0 +1,141 @@
+/* =========================
+   PRELOADER
+========================= */
+
+#preloader {
+  position: fixed;
+  inset: 0;
+  background: #ffffff;
+  z-index: 99999;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+
+  animation: loaderFadeIn 0.5s ease;
+}
+
+.loader-content {
+  text-align: center;
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  margin-bottom: 25px;
+
+  animation: logoAppear 0.8s ease forwards;
+}
+
+.logo-wrapper h1 {
+  font-family: "Jost", sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #06bbcc;
+  margin: 0;
+}
+
+.book-icon {
+  color: #06bbcc;
+  font-size: 2rem;
+}
+
+.graduation-cap {
+  font-size: 3rem;
+  margin-bottom: 25px;
+
+  animation: floatCap 2.5s ease-in-out infinite;
+}
+
+.progress-container {
+  width: 260px;
+  height: 8px;
+
+  background: rgba(6, 187, 204, 0.15);
+
+  border-radius: 50px;
+
+  overflow: hidden;
+
+  margin: auto;
+}
+
+.progress-bar {
+  width: 40%;
+  height: 100%;
+
+  background: linear-gradient(90deg, #06bbcc, #3fe0ef, #06bbcc);
+
+  border-radius: 50px;
+
+  animation: loadingBar 1.8s ease-in-out infinite;
+}
+
+.loading-text {
+  margin-top: 18px;
+
+  font-family: "Jost", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+
+  color: #666;
+
+  letter-spacing: 0.5px;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes loaderFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes logoAppear {
+  from {
+    opacity: 0;
+    transform: translateY(15px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes floatCap {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes loadingBar {
+  0% {
+    transform: translateX(-180%);
+  }
+
+  100% {
+    transform: translateX(350%);
+  }
+}
+
+.preloader-hide {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.6s ease;
+}
